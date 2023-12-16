@@ -1,0 +1,27 @@
+//====================================================================================================
+.header {
+    padding: 20px 0;
+    // .header__container
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // .header__logo
+    &__logo {
+    }
+}
+
+.header-menu {
+    // .header-menu__body
+    &__body {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+//====================================================================================================
