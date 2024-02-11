@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button-add-worker {
+    padding: 10px 20px;
+    color: white;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 15px;
+}
