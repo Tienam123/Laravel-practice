@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '40debbff14d46e538ad9bb42b061c6c7c7868d80',
+        'pretty_version' => 'dev-11.02.2024-worker',
+        'version' => 'dev-11.02.2024-worker',
+        'reference' => 'e3fc7effd64a994f432ac533f9299b2a2c10a743',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -451,6 +451,15 @@
                 0 => '*',
             ),
         ),
+        'laravel/breeze' => array(
+            'pretty_version' => 'v1.28.1',
+            'version' => '1.28.1.0',
+            'reference' => 'e853918e770822780efd160a73fd676992340aca',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/breeze',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
         'laravel/framework' => array(
             'pretty_version' => 'v10.43.0',
             'version' => '10.43.0.0',
@@ -461,9 +470,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '40debbff14d46e538ad9bb42b061c6c7c7868d80',
+            'pretty_version' => 'dev-11.02.2024-worker',
+            'version' => 'dev-11.02.2024-worker',
+            'reference' => 'e3fc7effd64a994f432ac533f9299b2a2c10a743',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

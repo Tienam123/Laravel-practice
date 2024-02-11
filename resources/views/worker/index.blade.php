@@ -1,7 +1,9 @@
 @extends('layout.worker.index')
 @section('content')
     <a class="button-add-worker bg-blue-600" href={{route('workers.create')}}>Add worker</a>
+    @if(count($data) > 0)
     <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
             <thead class="bg-gray-50">
             <tr>
@@ -108,5 +110,8 @@
             </tbody>
         </table>
     </div>
+    @else
+        <h1>Список рабочих пуст</h1>
+    @endif
 @endsection
 
