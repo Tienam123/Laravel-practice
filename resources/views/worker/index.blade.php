@@ -1,9 +1,9 @@
 @extends('layout.worker.index')
 @section('content')
+    @can('create',\App\Models\Worker\Worker::class)
     <a class="button-add-worker bg-blue-600" href={{route('workers.create')}}>Add worker</a>
+    @endcan
     @if(count($data) > 0)
-    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
-
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
             <thead class="bg-gray-50">
             <tr>
@@ -63,7 +63,9 @@
                         </div>
                     </td>
                     <td class="px-6 py-4">
+
                         <div class="flex justify-end gap-4">
+                            @can('delete',\App\Models\Worker\Worker::class)
                             <form action="{{route('workers.destroy',$item->id)}}" method="post">
                                 @method('DELETE')
                                 @csrf
@@ -85,6 +87,8 @@
                                     </svg>
                                 </button>
                             </form>
+                            @endcan
+                                @can('update',\App\Models\Worker\Worker::class)
                                 <a href="{{route('workers.edit',$item->id)}}">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -102,14 +106,16 @@
                                         />
                                     </svg>
                                 </a>
+                                @endcan
                         </div>
+
                     </td>
+
                 </tr>
             @endforeach
 
             </tbody>
         </table>
-    </div>
     @else
         <h1>Список рабочих пуст</h1>
     @endif

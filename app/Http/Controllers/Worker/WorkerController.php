@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Worker;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Worker\StoreRequest;
 use App\Models\Worker\Worker;
-use Illuminate\Http\Request;
 
 class WorkerController extends Controller
 {
@@ -32,6 +31,7 @@ class WorkerController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        $this->authorize('create', Worker::class);
         $data = $request->validated();
         $data['worker_technologies'] = json_encode($data['worker_technologies']);
         $data['is_online'] = $data['is_online'] == '1';
@@ -53,7 +53,9 @@ class WorkerController extends Controller
      */
     public function edit(Worker $worker)
     {
-       return view('worker.edit',compact('worker'));
+        $this->authorize('create', $worker);
+
+        return view('worker.edit', compact('worker'));
     }
 
     /**
@@ -61,10 +63,12 @@ class WorkerController extends Controller
      */
     public function update(StoreRequest $request, Worker $worker)
     {
+        $this->authorize('create', $worker);
         $data = $request->validated();
         $data['worker_technologies'] = json_encode($data['worker_technologies']);
         $data['is_online'] = $data['is_online'] == '1';
         $worker->update($data);
+
         return redirect()->route('workers.index');
     }
 
@@ -74,6 +78,7 @@ class WorkerController extends Controller
     public function destroy(Worker $worker)
     {
         $worker->delete();
+
         return redirect()->route('workers.index');
     }
 }

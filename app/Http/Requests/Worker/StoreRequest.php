@@ -29,4 +29,15 @@ class StoreRequest extends FormRequest
             'is_online' => 'string',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'worker_name' => 'Это поле необходимо заполнить',
+            'worker_email' => 'Некорректно введенный адрес',
+            'worker_profession' => 'Это поле необходимо заполнить',
+            'worker_technologies' => 'Это поле необходимо заполнить',
+            'is_online' => 'Это поле необходимо заполнить',
+        ];
+    }
 }

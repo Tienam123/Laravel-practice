@@ -12,12 +12,13 @@ use Laravel\Sanctum\HasApiTokens;
  * App\Models\User
  *
  * @property mixed $password
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int,
+ *                \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
  *
- * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
+ * @method static \Database\Factories\UserFactory factory($count = NULL, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
@@ -39,6 +40,10 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  *
+ * @property int $role
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRole($value)
+ *
  * @mixin \Eloquent
  */
 class User extends Authenticatable
@@ -46,6 +51,18 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
+
+    const ROLE_GUEST = 1;
+
+    const ROLE_ADMIN = 2;
+
+    public static function getRoles(): array
+    {
+        return [
+            self::ROLE_GUEST => 'guest',
+            self::ROLE_ADMIN => 'admin',
+        ];
+    }
 
     /**
      * The attributes that are mass assignable.
